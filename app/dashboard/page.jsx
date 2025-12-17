@@ -50,7 +50,7 @@ export default function UserDashboard() {
           <Link href="/dashboard/vehicles" className="group">
             <div className="h-full bg-white border border-slate-200 rounded-xl p-6 hover:border-slate-400 hover:shadow-lg transition-all flex flex-col items-start">
               <span className="text-4xl mb-3 group-hover:scale-110 transition-transform">🚘</span>
-              <h3 className="text-lg font-bold text-slate-800">Garasi Saya</h3>
+              <h3 className="text-lg font-bold text-slate-800">Garasi</h3>
               <p className="text-slate-500 text-sm mt-1">Tambah atau edit daftar kendaraan pribadi/dinas.</p>
             </div>
           </Link>
@@ -74,7 +74,7 @@ export default function UserDashboard() {
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider">Aktivitas Terakhir</h3>
         </div>
-        <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+        <div className="bg-lime-200 border border-slate-200 rounded-xl overflow-hidden">
           {[1,2,3].map((item, idx) => (
             <div key={idx} className="flex items-center justify-between p-4 border-b border-slate-100 last:border-0 hover:bg-slate-50">
               <div className="flex items-center gap-3">
