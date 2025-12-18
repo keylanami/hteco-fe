@@ -40,7 +40,7 @@ export default function TripsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-2 text-sm text-slate-500 mb-6">
-        <Link href="/dashboard" className="hover:text-slate-900">Dashboard</Link> 
+        <Link href="/" className="hover:text-slate-900">Dashboard</Link> 
         <span>/</span>
         <span className="text-slate-900 font-semibold">Perjalanan</span>
       </div>

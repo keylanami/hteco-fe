@@ -1,98 +1,143 @@
 import Link from 'next/link';
+import Button from '@/components/ui/Button'; 
 import Card from '@/components/ui/Card';
+import Footer from '@/components/layout/Footer';
+import Navbar from '@/components/dashboard/NavbarNotLoggedIn';
+import NavbarNotLoggedIn from '@/components/dashboard/NavbarNotLoggedIn';
 
-export default function UserDashboard() {
-  return (
-    <div className="space-y-10 animate-fade-in-up">
-      
-      <section className="text-center space-y-4 pt-4">
-        <div className="text-6xl mb-4">👋</div>
-        <h1 className="text-4xl font-bold text-slate-900">Halo, Kei!</h1>
-        <p className="text-lg text-slate-500 max-w-lg mx-auto">
-          Siap mencatat perjalanan hari ini? Berikut adalah ringkasan emisi karbonmu bulan ini.
-        </p>
-      </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card className="text-center hover:shadow-md transition-shadow cursor-default">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Emisi</p>
-          <h2 className="text-3xl font-bold mt-2 text-slate-800">45.2 <span className="text-sm font-normal text-slate-500">kgCO2</span></h2>
-        </Card>
-        <Card className="text-center hover:shadow-md transition-shadow cursor-default">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Jarak</p>
-          <h2 className="text-3xl font-bold mt-2 text-slate-800">120 <span className="text-sm font-normal text-slate-500">km</span></h2>
-        </Card>
-        <Card className="text-center hover:shadow-md transition-shadow cursor-default">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Kendaraan Aktif</p>
-          <h2 className="text-3xl font-bold mt-2 text-slate-800">2 <span className="text-sm font-normal text-slate-500">Unit</span></h2>
-        </Card>
-      </section>
-
-      <hr className="border-slate-200" />
-
-   
-      <section>
-        <h3 className="text-sm font-bold text-slate-400 uppercase mb-4 tracking-wider">Menu Utama</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          
-      
-          <Link href="/dashboard/trips" className="group">
-            <div className="h-full bg-white border border-slate-200 rounded-xl p-6 hover:border-slate-400 hover:shadow-lg transition-all flex flex-col items-start">
-              <span className="text-4xl mb-3 group-hover:scale-110 transition-transform">🚗</span>
-              <h3 className="text-lg font-bold text-slate-800">Catat Perjalanan</h3>
-              <p className="text-slate-500 text-sm mt-1">Input jarak tempuh harianmu untuk menghitung emisi.</p>
-            </div>
-          </Link>
-
+const LandingPage = () => {
+    return (
+      <div className="min-h-screen flex flex-col font-sans bg-[#F7F7F5] text-slate-800 selection:bg-emerald-200">
         
-          <Link href="/dashboard/vehicles" className="group">
-            <div className="h-full bg-white border border-slate-200 rounded-xl p-6 hover:border-slate-400 hover:shadow-lg transition-all flex flex-col items-start">
-              <span className="text-4xl mb-3 group-hover:scale-110 transition-transform">🚘</span>
-              <h3 className="text-lg font-bold text-slate-800">Garasi</h3>
-              <p className="text-slate-500 text-sm mt-1">Tambah atau edit daftar kendaraan pribadi/dinas.</p>
+        <NavbarNotLoggedIn/>
+    
+        
+        <header className="flex-1 flex flex-col justify-center items-center text-center px-6 pt-10 pb-20">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-6 animate-fade-in-up">
+            New: Hybrid Vehicle Support ⚡
+          </div>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 max-w-4xl leading-tight animate-fade-in-up">
+            Pantau Jejak Karbon.<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">
+              Mulai Perubahan Nyata.
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-500 max-w-2xl mb-10 animate-fade-in-up delay-100">
+            Platform monitoring emisi kendaraan yang simpel dan transparan. 
+            Kelola aset kendaraan, catat perjalanan, dan lihat dampakmu terhadap lingkungan.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-200">
+            <Link href="/auth/register">
+              <Button className="px-8 py-4 text-lg rounded-full shadow-xl shadow-emerald-200 hover:shadow-emerald-300">
+                Mulai Sekarang &rarr;
+              </Button>
+            </Link>
+            <Link href="/auth/login">
+              <button className="px-8 py-4 text-lg font-bold text-slate-600 hover:bg-white hover:shadow-lg rounded-full transition-all border border-transparent hover:border-slate-200">
+                Lihat Demo
+              </button>
+            </Link>
+          </div>
+        </header>
+    
+       
+        <section className="px-6 py-20 bg-white border-y rounded-3xl border-slate-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">Fitur Utama</h2>
+              <p className="text-slate-500">Semua yang kamu butuhkan untuk manajemen emisi.</p>
             </div>
-          </Link>
-
+    
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-8 rounded-2xl bg-[#F7F7F5] border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-3xl shadow-sm mb-6">
+                  🚘
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Manajemen Garasi</h3>
+                <p className="text-slate-500 leading-relaxed">
+                  Database kendaraan lengkap dengan spesifikasi pabrik. Mendukung mobil bensin, solar, hingga hybrid dan listrik.
+                </p>
+              </div>
+    
+              <div className="p-8 rounded-2xl bg-[#F7F7F5] border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-3xl shadow-sm mb-6">
+                  📝
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Pencatatan Mudah</h3>
+                <p className="text-slate-500 leading-relaxed">
+                  Cukup pilih kendaraan dan masukkan jarak tempuh. Sistem kami menghitung emisi CO2 secara otomatis dan akurat.
+                </p>
+              </div>
+    
+              <div className="p-8 rounded-2xl bg-[#F7F7F5] border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-3xl shadow-sm mb-6">
+                  📈
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Laporan & Insight</h3>
+                <p className="text-slate-500 leading-relaxed">
+                  Visualisasi data tren emisi harian, mingguan, dan bulanan. Pantau kemajuanmu menuju gaya hidup hijau.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+    
+        <section className="px-6 py-20 max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-slate-900 mb-10">Interface yang Bersih & Fokus</h2>
           
-          <Link href="/dashboard/insight" className="group sm:col-span-2">
-            <div className="h-full bg-slate-900 border border-slate-900 rounded-xl p-6 hover:bg-slate-800 hover:shadow-lg transition-all flex items-center justify-between text-white">
-              <div>
-                <h3 className="text-lg font-bold">Lihat Laporan Emisi Lengkap</h3>
-                <p className="text-slate-400 text-sm mt-1">Analisis tren emisi dan grafik penggunaan.</p>
+          <div className="relative bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 md:p-8 overflow-hidden">
+
+            <div className="flex justify-between items-center mb-8 border-b border-slate-100 pb-4">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div className="w-3 h-3 rounded-full bg-green-400"></div>
               </div>
-              <span className="text-2xl">📈 &rarr;</span>
+              <div className="text-xs font-bold text-slate-300 uppercase">Dashboard Preview</div>
             </div>
-          </Link>
-
-        </div>
-      </section>
-
-     
-      <section>
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider">Aktivitas Terakhir</h3>
-        </div>
-        <div className="bg-lime-200 border border-slate-200 rounded-xl overflow-hidden">
-          {[1,2,3].map((item, idx) => (
-            <div key={idx} className="flex items-center justify-between p-4 border-b border-slate-100 last:border-0 hover:bg-slate-50">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-lg">
-                  {idx === 0 ? '🚗' : '🛵'}
-                </div>
-                <div>
-                  <p className="font-bold text-slate-800 text-sm">{idx === 0 ? 'Ke Kantor' : 'Meeting Client'}</p>
-                  <p className="text-xs text-slate-500">17 Des • Toyota Avanza</p>
-                </div>
+    
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left opacity-90 pointer-events-none select-none blur-[0.5px] hover:blur-0 transition-all duration-500">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                <p className="text-[10px] font-bold text-slate-400 uppercase">Total Emisi</p>
+                <p className="text-2xl font-bold text-slate-800">45.2 kg</p>
               </div>
-              <div className="text-right">
-                <p className="font-bold text-slate-800 text-sm">12 km</p>
-                <p className="text-xs text-slate-500">1.4 kg CO2</p>
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                <p className="text-[10px] font-bold text-slate-400 uppercase">Jarak</p>
+                <p className="text-2xl font-bold text-slate-800">120 km</p>
+              </div>
+              <div className="bg-lime-100 p-4 rounded-xl border border-lime-200 col-span-1 md:col-span-1">
+                <p className="text-[10px] font-bold text-lime-700 uppercase">Status</p>
+                <p className="text-lg font-bold text-lime-900 flex items-center gap-2">
+                  ✅ Eco-Friendly
+                </p>
+              </div>
+             
+              <div className="col-span-1 md:col-span-3 mt-2 space-y-2">
+                 <div className="flex justify-between p-3 border border-slate-100 rounded-lg">
+                    <span className="text-sm font-bold">🚗 Ke Kantor</span>
+                    <span className="text-sm text-emerald-600 font-mono">1.2 kg CO2</span>
+                 </div>
+                 <div className="flex justify-between p-3 border border-slate-100 rounded-lg">
+                    <span className="text-sm font-bold">🛵 Meeting</span>
+                    <span className="text-sm text-emerald-600 font-mono">0.4 kg CO2</span>
+                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-    </div>
-  );
+            
+    
+            <div className="absolute inset-0 flex items-center justify-center bg-white/10 backdrop-blur-[1px] hover:backdrop-blur-none transition-all">
+            </div>
+          </div>
+        </section>
+    
+    
+          
+      </div>
+    );
 }
+
+
+export default LandingPage;
