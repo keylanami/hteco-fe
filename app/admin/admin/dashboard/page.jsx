@@ -1,10 +1,10 @@
 'use client';
 import Card from '@/components/ui/Card';
 
-export default function AdminDashboard() {
-  return (
+const AdminDashboard = () => {
+   return (
+
     <div className="space-y-8 animate-fade-in-up">
-      {/* Header */}
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-slate-900">Monitoring Sistem</h1>
@@ -17,7 +17,6 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      {/* 1. KEY METRICS (Monitoring Emisi Global) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card className="bg-slate-900 text-white border-none shadow-xl">
            <p className="text-slate-400 text-xs font-bold uppercase tracking-wider">Total Emisi Akumulatif</p>
@@ -49,7 +48,6 @@ export default function AdminDashboard() {
         </Card>
       </div>
 
-      {/* 2. CHART AREA */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
            <h3 className="font-bold text-slate-800 mb-4">Tren Emisi Pengguna (6 Bulan Terakhir)</h3>
@@ -99,5 +97,7 @@ export default function AdminDashboard() {
         </Card>
       </div>
     </div>
-  );
+   );
 }
+
+export default AdminDashboard;

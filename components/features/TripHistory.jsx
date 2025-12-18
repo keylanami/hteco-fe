@@ -1,7 +1,6 @@
 import Card from "../ui/Card";
 
 const TripHistory = () => {
-  // Dummy data
   const history = [
     {
       id: 1,

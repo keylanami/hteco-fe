@@ -5,7 +5,7 @@ import Button from '@/components/ui/Button';
 import Link from 'next/link';
 
 export default function VehiclesPage() {
-  // Mock Data Kendaraan User
+  // mock 
   const [vehicles, setVehicles] = useState([
     { id: 1, name: 'Toyota Avanza Dinas', type: 'Mobil', fuel: 'Bensin', efficiency: 12 },
     { id: 2, name: 'Honda Vario Pribadi', type: 'Motor', fuel: 'Bensin', efficiency: 45 },
@@ -23,7 +23,6 @@ export default function VehiclesPage() {
 
   return (
     <div className="space-y-8 animate-fade-in-up">
-      {/* Header */}
       <div className="flex flex-col md:flex-row justify-between md:items-end gap-4">
         <div>
           <div className="flex items-center gap-2 text-sm text-slate-500 mb-2">
@@ -37,7 +36,7 @@ export default function VehiclesPage() {
         </Button>
       </div>
 
-      {/* Form Tambah (Toggle) */}
+     
       {isFormOpen && (
         <Card className="bg-slate-50 border-slate-300">
           <form onSubmit={handleAdd} className="space-y-4">
@@ -97,7 +96,6 @@ export default function VehiclesPage() {
         </Card>
       )}
 
-      {/* Grid List Kendaraan */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {vehicles.map((v) => (
           <div key={v.id} className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-slate-400 transition-all relative overflow-hidden">

@@ -2,26 +2,26 @@
 import { useState } from 'react';
 import Card from '@/components/ui/Card';
 
-export default function UsersPage() {
+const UsersPage = () => {
+
   const [users, setUsers] = useState([
-    // Kolom 'role' diganti jadi 'joined_at'
     { id: 1, name: 'Alex John', email: 'alex@gmail.com', joinedAt: '12 Des 2025', status: 'Active', total_trips: 45 },
     { id: 2, name: 'Sarah Connor', email: 'sarah@outlook.com', joinedAt: '10 Nov 2025', status: 'Inactive', total_trips: 12 },
     { id: 3, name: 'Michael Doe', email: 'mike@yahoo.com', joinedAt: '01 Jan 2025', status: 'Active', total_trips: 0 },
   ]);
-
+  
   const toggleStatus = (id) => {
     setUsers(users.map(u => 
       u.id === id ? { ...u, status: u.status === 'Active' ? 'Inactive' : 'Active' } : u
     ));
   };
-
+  
   const deleteUser = (id) => {
     if(confirm('Hapus user ini? Semua data perjalanan mereka akan hilang.')) {
       setUsers(users.filter(u => u.id !== id));
     }
   };
-
+  
   return (
     <div className="space-y-6 animate-fade-in-up">
       <div className="flex justify-between items-end">
@@ -33,7 +33,7 @@ export default function UsersPage() {
           Total Users: <span className="font-bold text-slate-900">{users.length}</span>
         </div>
       </div>
-
+  
       <Card className="overflow-hidden p-0">
         <table className="w-full text-left text-sm">
           <thead className="bg-slate-50 border-b border-slate-200">
@@ -60,7 +60,7 @@ export default function UsersPage() {
                     📅 {user.joinedAt}
                   </span>
                 </td>
-
+  
                 <td className="py-4 px-6">
                   <button 
                     onClick={() => toggleStatus(user.id)}
@@ -93,3 +93,5 @@ export default function UsersPage() {
     </div>
   );
 }
+
+export default UsersPage;

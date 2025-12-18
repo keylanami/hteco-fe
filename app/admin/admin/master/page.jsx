@@ -3,41 +3,40 @@ import { useState } from 'react';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 
-export default function MasterDataPage() {
-  const [activeTab, setActiveTab] = useState('fuel'); // 'fuel' or 'vehicle'
+const MasterDataPage = () => {
 
-  // --- DATA DUMMY (LOCAL STATE) ---
+  const [activeTab, setActiveTab] = useState('fuel'); // 'fuel' or 'vehicle'
+  
   const [fuels, setFuels] = useState([
     { id: 1, name: 'Bensin (Gasoline)', unit: 'Liter', factor: 2.31 },
     { id: 2, name: 'Solar (Diesel)', unit: 'Liter', factor: 2.68 },
     { id: 3, name: 'Listrik (Grid)', unit: 'kWh', factor: 0.85 },
   ]);
-
+  
   const [vehicleTemplates, setVehicleTemplates] = useState([
     { id: 1, type: 'Motor', default_efficiency: 45 },
     { id: 2, type: 'Mobil (City Car)', default_efficiency: 15 },
     { id: 3, type: 'Mobil (SUV)', default_efficiency: 10 },
     { id: 4, type: 'Truk Logistik', default_efficiency: 6 },
   ]);
-
-  // --- LOGIKA CRUD SEDERHANA ---
-  // (Di real app, ini connect ke Backend API)
+  
+  // crud
   
   const handleUpdateFuel = (id, newFactor) => {
     setFuels(fuels.map(f => f.id === id ? { ...f, factor: newFactor } : f));
   };
-
+  
   const handleUpdateEfficiency = (id, newEff) => {
     setVehicleTemplates(vehicleTemplates.map(v => v.id === id ? { ...v, default_efficiency: newEff } : v));
   };
-
+  
   return (
     <div className="space-y-6 animate-fade-in-up">
       <div>
         <h1 className="text-3xl font-bold text-slate-900">Konfigurasi Emisi</h1>
         <p className="text-slate-500">Atur faktor emisi dan referensi standar yang digunakan user.</p>
       </div>
-
+  
       {/* Warning Alert */}
       <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg flex gap-3 text-amber-800">
         <span className="text-xl">⚠️</span>
@@ -46,7 +45,7 @@ export default function MasterDataPage() {
           yang akan datang. Data histori lama tidak akan berubah untuk menjaga integritas laporan.
         </div>
       </div>
-
+  
       {/* Tab Switcher */}
       <div className="flex border-b border-slate-200">
         <button 
@@ -62,7 +61,7 @@ export default function MasterDataPage() {
           Template Kendaraan
         </button>
       </div>
-
+  
       {/* CONTENT TAB 1: BAHAN BAKAR */}
       {activeTab === 'fuel' && (
         <Card>
@@ -101,7 +100,7 @@ export default function MasterDataPage() {
           </table>
         </Card>
       )}
-
+  
       {/* CONTENT TAB 2: TEMPLATE KENDARAAN */}
       {activeTab === 'vehicle' && (
         <Card>
@@ -147,3 +146,5 @@ export default function MasterDataPage() {
     </div>
   );
 }
+
+export default MasterDataPage;

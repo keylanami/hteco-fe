@@ -5,13 +5,12 @@ import Button from '@/components/ui/Button';
 import Link from 'next/link';
 
 export default function TripsPage() {
-  // Mock Data State
+  // mock
   const [trips, setTrips] = useState([
     { id: 1, date: '2025-12-17', vehicle: 'Avanza B 1234', distance: 12, emission: 1.44 },
     { id: 2, date: '2025-12-16', vehicle: 'Vario B 5678', distance: 5, emission: 0.25 },
   ]);
 
-  // Form State
   const [isAdding, setIsAdding] = useState(false);
   const [formData, setFormData] = useState({ vehicle: 'Avanza B 1234', distance: '' });
 
@@ -34,9 +33,12 @@ export default function TripsPage() {
     setTrips(trips.filter(t => t.id !== id));
   };
 
+  const handleUpdate = (id) => {
+    setTrips([])
+  }
+
   return (
     <div className="space-y-6">
-      {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-slate-500 mb-6">
         <Link href="/dashboard" className="hover:text-slate-900">Dashboard</Link> 
         <span>/</span>
@@ -53,7 +55,6 @@ export default function TripsPage() {
         </Button>
       </div>
 
-      {/* Form Input (Muncul jika tombol diklik) */}
       {isAdding && (
         <Card className="animate-fade-in-down bg-slate-50 border-slate-300">
           <form onSubmit={handleAddTrip} className="space-y-4">
@@ -89,7 +90,7 @@ export default function TripsPage() {
         </Card>
       )}
 
-      {/* List Perjalanan */}
+
       <div className="space-y-4">
         {trips.map((trip) => (
           <div key={trip.id} className="bg-white border border-slate-200 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-md transition-all group">
@@ -109,9 +110,12 @@ export default function TripsPage() {
                 <p className="text-lg font-bold text-slate-900">{trip.emission} kg</p>
               </div>
               
-              {/* Action Buttons */}
+            
               <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="p-2 hover:bg-slate-100 rounded-lg text-slate-500">✏️</button>
+                <button
+                  onClick={() => handleUpdate(trip.id)} 
+                 className="p-2 hover:bg-slate-100 rounded-lg text-slate-500">
+                  ✏️</button>
                 <button 
                   onClick={() => handleDelete(trip.id)}
                   className="p-2 hover:bg-red-50 rounded-lg text-red-500"

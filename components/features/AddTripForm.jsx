@@ -5,12 +5,11 @@ import GlassCard from '@/components/ui/GlassCard';
 const AddTripForm = () => {
   const [distance, setDistance] = useState('');
   
-  // Style input biar ga bosenin
   const inputStyle = "w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all";
 
   return (
     <GlassCard className="h-full relative overflow-hidden group">
-      {/* Background Decor */}
+    
       <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl -z-10 group-hover:bg-emerald-500/20 transition-all"></div>
 
       <h3 className="text-xl font-bold mb-6 flex items-center gap-2">

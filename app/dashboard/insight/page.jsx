@@ -3,7 +3,7 @@ import Card from '@/components/ui/Card';
 import Link from 'next/link';
 
 export default function InsightPage() {
-  // Mock Data Chart 
+  // mock 
   const chartData = [
     { label: 'Sen', height: '40%', val: '2kg' },
     { label: 'Sel', height: '65%', val: '4kg' },
@@ -16,7 +16,6 @@ export default function InsightPage() {
 
   return (
     <div className="space-y-8 animate-fade-in-up">
-      {/* Header */}
       <div className="flex flex-col md:flex-row justify-between md:items-end gap-4">
         <div>
           <div className="flex items-center gap-2 text-sm text-slate-500 mb-2">
@@ -32,39 +31,32 @@ export default function InsightPage() {
         </div>
       </div>
 
-      {/* 1. Grafik Batang (FIXED) */}
+     
       <Card>
         <div className="flex justify-between items-center mb-6">
           <h3 className="font-bold text-slate-800">Tren Emisi Minggu Ini</h3>
           <span className="text-sm text-slate-500">Total: 16.7 kgCO2e</span>
         </div>
         
-        {/* Chart Container - Pastikan tingginya Fixed (h-64) */}
+       
         <div className="h-64 border-b border-slate-100 flex items-end justify-between gap-2 sm:gap-4 px-2 pb-0">
           {chartData.map((d, i) => (
-            // WRAPPER: Harus h-full dan justify-end agar batang tumbuh dari bawah
             <div key={i} className="h-full w-full flex flex-col items-center justify-end group cursor-pointer gap-2">
-              
-              {/* Tooltip Hover */}
               <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-slate-800 text-white text-xs px-2 py-1 rounded mb-1">
                 {d.val}
               </div>
-
-              {/* Batang Chart */}
               <div 
                 style={{ height: d.height }} 
                 className="w-full bg-slate-300 rounded-t-sm group-hover:bg-slate-800 transition-all duration-300 relative"
               >
               </div>
-
-              {/* Label Hari */}
               <p className="text-xs text-slate-500 font-medium pb-2">{d.label}</p>
             </div>
           ))}
         </div>
+
       </Card>
 
-      {/* 2. Breakdown per Kendaraan */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card className="flex flex-col justify-center">
           <h3 className="font-bold text-slate-800 mb-4">Kontribusi Sumber Emisi</h3>
