@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { DataProvider } from '../app/context/DataContext';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +16,10 @@ export default function DashboardLayout({ children }) {
     <html>
       <body>
         <div className="min-h-screen bg-[#F7F7F5] text-slate-800 font-sans">
-          {/* Top Navbar Sticky */}
+         <DataProvider>
           <Navbar />
 
-          {/* Main Content Area - Centered like Notion */}
+         </DataProvider>
           <main className="max-w-4xl mx-auto px-6 py-10 pb-20">{children}</main>
         </div>
       </body>
