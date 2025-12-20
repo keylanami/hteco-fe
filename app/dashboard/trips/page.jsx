@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import DashboardBackButton from '@/components/ui/BackButton';
 
 export default function TripsPage() {
   // mock
@@ -39,10 +40,8 @@ export default function TripsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-2 text-sm text-slate-500 mb-6">
-        <Link href="/" className="hover:text-slate-900">Dashboard</Link> 
-        <span>/</span>
-        <span className="text-slate-900 font-semibold">Perjalanan</span>
+      <div className="mb-4">
+        <DashboardBackButton />
       </div>
 
       <div className="flex justify-between items-end">
