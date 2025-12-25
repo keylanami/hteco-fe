@@ -33,9 +33,9 @@ const LandingPage = () => {
                 Mulai Sekarang &rarr;
               </Button>
             </Link>
-            <Link href="/auth/login">
+            <Link href="/dashboard">
               <button className="px-8 py-4 text-lg font-bold text-slate-600 hover:bg-white hover:shadow-lg rounded-full transition-all border border-transparent hover:border-slate-200">
-                Lihat Demo
+                Masuk Dashboard
               </button>
             </Link>
           </div>
