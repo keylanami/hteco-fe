@@ -3,7 +3,6 @@ import GlassCard from '@/components/ui/GlassCard';
 const StatBento = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-      {/* Card Utama Besar */}
       <GlassCard className="col-span-1 md:col-span-2 bg-gradient-to-br from-emerald-900/40 to-black/20 border-emerald-500/30">
         <div className="flex justify-between items-start">
           <div>
@@ -18,7 +17,7 @@ const StatBento = () => {
         </div>
       </GlassCard>
 
-      {/* Card Kecil 1 */}
+
       <GlassCard>
         <p className="text-slate-400 text-sm mb-2">Total Trips</p>
         <p className="text-3xl font-bold text-white">42</p>
@@ -27,7 +26,7 @@ const StatBento = () => {
         </div>
       </GlassCard>
 
-      {/* Card Kecil 2 */}
+
       <GlassCard>
         <p className="text-slate-400 text-sm mb-2">Green Score</p>
         <p className="text-3xl font-bold text-emerald-400">A+</p>

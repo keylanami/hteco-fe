@@ -37,7 +37,7 @@ const MasterDataPage = () => {
         <p className="text-slate-500">Atur faktor emisi dan referensi standar yang digunakan user.</p>
       </div>
   
-      {/* Warning Alert */}
+      {/* alert */}
       <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg flex gap-3 text-amber-800">
         <span className="text-xl">⚠️</span>
         <div className="text-sm">
@@ -46,7 +46,7 @@ const MasterDataPage = () => {
         </div>
       </div>
   
-      {/* Tab Switcher */}
+      {/* tab switcher */}
       <div className="flex border-b border-slate-200">
         <button 
           onClick={() => setActiveTab('fuel')}
@@ -62,7 +62,7 @@ const MasterDataPage = () => {
         </button>
       </div>
   
-      {/* CONTENT TAB 1: BAHAN BAKAR */}
+
       {activeTab === 'fuel' && (
         <Card>
           <div className="flex justify-between mb-4">
@@ -101,7 +101,7 @@ const MasterDataPage = () => {
         </Card>
       )}
   
-      {/* CONTENT TAB 2: TEMPLATE KENDARAAN */}
+
       {activeTab === 'vehicle' && (
         <Card>
            <div className="flex justify-between mb-4">
